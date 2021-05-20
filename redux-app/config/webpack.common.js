@@ -95,7 +95,6 @@ const config = {
     alias: {
       app: commonPaths.sourcePath,
       'app-assets': path.resolve(__dirname, '../', 'static/'),
-      '../../theme.config$': path.resolve(__dirname, '../', 'src/theme/semantic-ui/theme.config'),
     },
     modules: [
       'src',
