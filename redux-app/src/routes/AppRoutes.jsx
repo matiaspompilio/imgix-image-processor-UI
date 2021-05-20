@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Landing from 'app/pages/Landing';
+import ImageListContainer from 'app/containers/ImagesList';
 
 const AppRoutes = () => (
   <Switch>
-    <Route path="/" component={Landing} />
+    <Route path="/" component={ImageListContainer} />
   </Switch>
 );
 
