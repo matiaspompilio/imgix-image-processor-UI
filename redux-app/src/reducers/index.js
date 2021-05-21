@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import { connectRouter } from 'connected-react-router';
+import imagesListReducer from './images-list';
 
 export default (history) =>
   combineReducers({
@@ -10,5 +11,6 @@ export default (history) =>
     // redux form reducer
     form: formReducer,
 
-    // Add your custom reducers here
+    // custom reducers
+    imagesList: imagesListReducer,
   });

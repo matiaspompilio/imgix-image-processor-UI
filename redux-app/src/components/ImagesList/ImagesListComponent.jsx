@@ -1,25 +1,18 @@
 import React from 'react';
-import { AppBar, Button, CssBaseline, Grid, Toolbar, Typography, Container } from '@material-ui/core';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
+import { Button, CssBaseline, Grid, Typography, Container } from '@material-ui/core';
 import ImageListCard from 'src/components/ImageListCard';
+import Navbar from 'src/components/Navbar';
+import Footer from 'src/components/Footer';
 import useStyles from './ImageListStyles';
+import PropTypes from 'prop-types';
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-export const ImagesListComponent = () => {
+export const ImagesListComponent = ({ images }) => {
   const classes = useStyles();
 
   return (
     <>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <CameraIcon className={classes.icon} />
-          <Typography variant="h6" color="inherit" noWrap>
-            IIPU
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <Navbar />
       <main>
         {/* Hero unit */}
         <div className={classes.heroContent}>
@@ -44,26 +37,26 @@ export const ImagesListComponent = () => {
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
-                <ImageListCard />
+            {images.map(({ name, url }, index) => (
+              <Grid item key={`${name}-${index}`} xs={12} sm={6} md={4}>
+                <ImageListCard name={name} src={url} />
               </Grid>
             ))}
           </Grid>
         </Container>
       </main>
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          IIPU
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Imgix Image Processor UI
-        </Typography>
-      </footer>
-      {/* End footer */}
+      <Footer />
     </>
   );
+};
+
+ImagesListComponent.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    }),
+  ),
 };
 
 export default ImagesListComponent;

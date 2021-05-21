@@ -48,6 +48,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
+    "axios": "^0.21.1",
     "connected-react-router": "^6.9.1",
     "history": "4.7.2",
     "prop-types": "^15.7.2",

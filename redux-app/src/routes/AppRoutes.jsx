@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import ImageListContainer from 'app/containers/ImagesList';
+import ImagesListContainer from 'app/containers/ImagesList';
 
 const AppRoutes = () => (
   <Switch>
-    <Route path="/" component={ImageListContainer} />
+    <Route path="/" component={ImagesListContainer} />
   </Switch>
 );
 
