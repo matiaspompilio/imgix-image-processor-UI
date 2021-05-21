@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-import { Button } from '@material-ui/core';
+import ImagesList from 'src/components/ImagesList';
 
 class ImageListContainer extends Component {
   render() {
-    return (
-      <Button variant="contained" color="primary">
-        ImageListContainer
-      </Button>
-    );
+    return <ImagesList />;
   }
 }
 

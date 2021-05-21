@@ -13,9 +13,7 @@ const PORT = process.env.PORT || 8091;
 const URL_BASE = process.env.URL_BASE || `http://${HOST}:${PORT}`;
 
 const config = {
-  entry: [
-    'react-hot-loader/patch',
-  ],
+  entry: ['react-hot-loader/patch'],
   mode: 'development',
   devtool: 'cheap-module-source-map',
   devServer: {
@@ -49,28 +47,26 @@ const config = {
     new WebpackManifestPlugin({
       publicPath: URL_BASE,
       seed: {
-        name: "marketplace",
-        short_name: "marketplace",
-        start_url: "index.html",
-        display: "standalone",
+        name: 'marketplace',
+        short_name: 'marketplace',
+        start_url: 'index.html',
+        display: 'standalone',
         icons: [
           {
-            src: "favicon.ico",
-            sizes: "512x512",
-            type: "image/x-icon"
-          }
+            src: 'favicon.ico',
+            sizes: '512x512',
+            type: 'image/x-icon',
+          },
         ],
-        background_color: "#4e0041",
-        theme_color: "#4e0041"
+        background_color: '#4e0041',
+        theme_color: '#4e0041',
       },
       generate: (seed, files, entrypoints) => {
         const manifestFiles = files.reduce((manifest, file) => {
           manifest[file.name] = file.path;
           return manifest;
         }, seed);
-        const entrypointFiles = entrypoints.main.filter(
-          fileName => !fileName.endsWith('.map')
-        );
+        const entrypointFiles = entrypoints.main.filter((fileName) => !fileName.endsWith('.map'));
 
         return {
           files: manifestFiles,
@@ -84,7 +80,7 @@ const config = {
           from: commonPaths.favicon,
           to: commonPaths.outputPath,
         },
-      ]
+      ],
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],
